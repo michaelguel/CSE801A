@@ -1,17 +1,4 @@
-"""
-This module contains the Creature class.
-
-A creature has a score.  A score at zero or below indicates
-the creature is "dead".
-
-The creature needs to know:
-* its score
-* its facing (N, E, S, W)
-* its grid size (width of world, height of world)
-* its start location  (x, y) if you prefer
-* its start facing (N, E, S, W)
-* its current location (x, y)
-"""
+# It is safe to change the code in this cell -- in fact you should!
 
 
 class Creature:
@@ -73,13 +60,7 @@ class Creature:
         Returns:
             a Boolean value True or False if the creature is alive.
         """
-
-        if self.score > 0:
-            return True
-        else:
-            return False
-
-
+        return self.score > 0
     
     
     def kill(self):
@@ -93,7 +74,6 @@ class Creature:
             None, but will set the creature's score to 0 to kill it.
         """
         self.score = 0
- 
     
     
     
@@ -118,8 +98,8 @@ class Creature:
             self.facing = 'E'
         elif self.facing == 'E':
             self.facing = 'N'
-        
-
+        else:
+            raise Exception(f'Unknown facing {self.facing}')
     
     
     def rotate_right(self):
@@ -142,7 +122,8 @@ class Creature:
             self.facing = 'W'
         elif self.facing == 'W':
             self.facing = 'N'
-    
+        else:
+            raise Exception(f'Unknown facing {self.facing}')
     
     
     
@@ -177,28 +158,21 @@ class Creature:
         Returns:
             None, but the creature tries to move.
         """
-        if self.facing == 'N' and self.current_location[1] > 0:
-            list1 = list(self.current_location)
-            list1[1] -= 1
-            self.current_location = tuple(list1)
-        elif self.facing == 'S' and self.current_location[1] < 4:
-            list2 = list(self.current_location)
-            list2[1] += 1
-            self.current_location = tuple(list2)
-        elif self.facing == 'E'and self.current_location[0] < 4:
-            list3 = list(self.current_location)
-            list3[0] += 1
-            self.current_location = tuple(list3)
-        elif self.facing == 'W'and 0 < self.current_location[0]:
-            list4 = list(self.current_location)
-            list4[0] -= 1
-            self.current_location = tuple(list4)
-
-import pandas as pd
-
-pd.__version__
-
-
-
-
-
+        cur_x, cur_y = self.current_location 
+        new_x, new_y = cur_x, cur_y
+        max_x, max_y = self.world_size
+        if self.facing == 'N':
+            if cur_y > 0:
+                new_y = cur_y - 1
+        elif self.facing == 'S':
+            if cur_y < max_y - 1:
+                new_y = cur_y + 1
+        elif self.facing == 'W':
+            if cur_x > 0:
+                new_x = cur_x - 1
+        elif self.facing == 'E':
+            if cur_x < max_x - 1:
+                new_x = cur_x + 1
+        else:
+            raise Exception(f'Unknown facing {self.facing}')
+        self.current_location = (new_x, new_y)
