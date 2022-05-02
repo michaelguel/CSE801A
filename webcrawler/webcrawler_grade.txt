@@ -1,0 +1,57 @@
+SCORE: 09/10
+Assignment01: Web Crawler                                              guelmich
+===============================================================================
+
+Submitted files
+---------------
+.
+├── Assignement1.ipynb
+├── Fixed.csv
+├── webcrawler_grade.txt
+└── webcrawlerassignment.old
+
+0 directories, 4 files
+
+
+Number of csv files identified: 1
+Number of ipynb files identified: 1
+
+
+
+CSV Evaluation
+--------------
+Attempting to read ./Fixed.csv [OK]
+Number of entries: 100
+Number of columns: 3
+Column headings:
+   source_url
+   link_url
+   link_title
+
+URL Evaluation
+--------------
+     https://en.wikipedia.org/wiki/Main_Page:                               10
+     https://en.wikipedia.org/wiki/Academy_Award_for_Best_Picture:          10
+     https://en.wikipedia.org/wiki/Field_of_Dreams:                         10
+     https://en.wikipedia.org/wiki/Lilies_of_the_Field_(1963_film):         10
+     https://en.wikipedia.org/wiki/Golden_Globe_Award_for_Best_Supporting_Actress_%E2%80%93_Motion_Picture:  10
+     https://en.wikipedia.org/wiki/The_Prize_(1963_film):                   10
+     https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&page=The_Prize_%281963_film%29&action=show-download-screen:  10
+     https://en.wikipedia.org/wiki/Help:Contents:                           10
+     https://en.wikipedia.org/wiki/Help_talk:Contents:                      10
+     https://en.wikipedia.org/wiki/Help:Introduction_to_editing_with_Wiki_Markup/6:  10
+
+Number of sources with too many targets:  0
+
+Accessible HTML targets 100
+Non HTML targets        0
+Inaccessible targets    0
+
+
+
+
+
+Comments
+--------
+-1 pt for including the Index
+
